@@ -1,0 +1,6 @@
+framework module EAResistantScrollView {
+  umbrella header "Pods-EAResistantScrollView-EAResistantScrollView-umbrella.h"
+
+  export *
+  module * { export * }
+}
