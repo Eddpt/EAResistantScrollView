@@ -13,6 +13,10 @@ it, simply add the following line to your Podfile:
 
     pod "EAResistantScrollView"
 
+Import:
+
+	#import <EAResistantScrollView/EAResistantScrollView.h>
+
 ## Author
 
 Edgar Antunes
