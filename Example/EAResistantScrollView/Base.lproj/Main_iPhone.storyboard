@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="t0e-MY-dpq">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--Resistant Scroll View-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="EAViewController" sceneMemberID="viewController">
@@ -13,13 +15,185 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7al-Va-dni" customClass="EAResistantScrollView">
+                                <rect key="frame" x="10" y="10" width="300" height="484"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="284" translatesAutoresizingMaskIntoConstraints="NO" id="PPQ-Mt-eA3">
+                                        <rect key="frame" x="8" y="8" width="284" height="1380"/>
+                                        <color key="backgroundColor" red="0.83921568629999999" green="0.83921568629999999" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="284" id="gSx-kr-7np"/>
+                                        </constraints>
+                                        <mutableString key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="PPQ-Mt-eA3" firstAttribute="leading" secondItem="7al-Va-dni" secondAttribute="leading" constant="8" id="WSo-NU-5Bi"/>
+                                    <constraint firstAttribute="bottom" secondItem="PPQ-Mt-eA3" secondAttribute="bottom" constant="8" id="aOc-Bj-JeM"/>
+                                    <constraint firstItem="PPQ-Mt-eA3" firstAttribute="top" secondItem="7al-Va-dni" secondAttribute="top" constant="8" id="t5c-c3-cKG"/>
+                                    <constraint firstAttribute="trailing" secondItem="PPQ-Mt-eA3" secondAttribute="trailing" constant="8" id="tSw-dU-U88"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="resistanceFactor">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="resistanceProgressionRatio">
+                                        <real key="value" value="0.40000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldApplyResistance" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jyV-Pf-zRb" firstAttribute="top" secondItem="7al-Va-dni" secondAttribute="top" constant="-10" id="KLk-aU-XW9"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="7al-Va-dni" secondAttribute="bottom" constant="10" id="bk7-p0-Y3D"/>
+                            <constraint firstAttribute="trailing" secondItem="7al-Va-dni" secondAttribute="trailing" constant="10" id="drI-zS-311"/>
+                            <constraint firstItem="7al-Va-dni" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="10" id="r0e-7D-rqN"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Resistant Scroll View" id="AtK-vA-Qq4">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="LSG-OS-yHS">
+                            <connections>
+                                <action selector="didTapBackButton:" destination="vXZ-lx-hvc" id="7VY-Is-HWC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="scrollView" destination="7al-Va-dni" id="tWI-74-N7n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1009" y="403"/>
+        </scene>
+        <!--Set up-->
+        <scene sceneID="fg8-Kv-V4v">
+            <objects>
+                <viewController id="Xvk-gg-fOH" customClass="EASetUpViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RhD-y8-ofR"/>
+                        <viewControllerLayoutGuide type="bottom" id="IgC-LG-Hqo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bUv-Ut-9Jg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qih-DX-IRB" userLabel="Container View">
+                                <rect key="frame" x="0.0" y="40" width="320" height="139"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Should allow resistance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TJ-gk-rSQ" userLabel="Allow Resistance">
+                                        <rect key="frame" x="8" y="13" width="231" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="CQl-yz-ITS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iwi-s5-irA" userLabel="Allow Resistance Switch">
+                                        <rect key="frame" x="263" y="8" width="51" height="31"/>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resistance factor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8S0-Rj-MY2" userLabel="Resistance Factor">
+                                        <rect key="frame" x="8" y="56" width="134" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="fRZ-wi-a4i"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3IT-Hx-q8J" userLabel="Resistance Factor Value">
+                                        <rect key="frame" x="150" y="52" width="162" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.4" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pUx-39-Fou" userLabel="Resistance Progression Ratio Value">
+                                        <rect key="frame" x="180" y="94" width="132" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resistance prog ratio" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVR-hk-kP6" userLabel="Resistance Progression Ratio">
+                                        <rect key="frame" x="8" y="98" width="164" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="Ngz-L0-rR1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="8TJ-gk-rSQ" firstAttribute="top" secondItem="qih-DX-IRB" secondAttribute="top" constant="13" id="001-qc-6aV"/>
+                                    <constraint firstItem="pUx-39-Fou" firstAttribute="leading" secondItem="YVR-hk-kP6" secondAttribute="trailing" priority="750" constant="8" id="1xz-4J-bHs"/>
+                                    <constraint firstItem="YVR-hk-kP6" firstAttribute="top" secondItem="8S0-Rj-MY2" secondAttribute="bottom" constant="21" id="27j-NA-HPD"/>
+                                    <constraint firstAttribute="trailing" secondItem="3IT-Hx-q8J" secondAttribute="trailing" constant="8" id="5hu-xF-xc9"/>
+                                    <constraint firstAttribute="trailing" secondItem="iwi-s5-irA" secondAttribute="trailing" constant="8" id="D55-Qc-ecT"/>
+                                    <constraint firstItem="YVR-hk-kP6" firstAttribute="leading" secondItem="8S0-Rj-MY2" secondAttribute="leading" id="SO1-2y-c40"/>
+                                    <constraint firstAttribute="height" constant="139" id="Xri-Z7-IO9"/>
+                                    <constraint firstItem="8TJ-gk-rSQ" firstAttribute="leading" secondItem="8S0-Rj-MY2" secondAttribute="leading" id="YoY-MU-ARD"/>
+                                    <constraint firstItem="8S0-Rj-MY2" firstAttribute="top" secondItem="8TJ-gk-rSQ" secondAttribute="bottom" constant="22" id="a0k-H8-mBz"/>
+                                    <constraint firstItem="3IT-Hx-q8J" firstAttribute="centerY" secondItem="8S0-Rj-MY2" secondAttribute="centerY" id="aiJ-CW-ctl"/>
+                                    <constraint firstItem="3IT-Hx-q8J" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8S0-Rj-MY2" secondAttribute="trailing" constant="8" id="bQy-0R-geg"/>
+                                    <constraint firstItem="8TJ-gk-rSQ" firstAttribute="centerY" secondItem="iwi-s5-irA" secondAttribute="centerY" id="hg1-e1-Sf0"/>
+                                    <constraint firstItem="pUx-39-Fou" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YVR-hk-kP6" secondAttribute="trailing" constant="8" id="jRJ-5a-yQb"/>
+                                    <constraint firstItem="pUx-39-Fou" firstAttribute="centerY" secondItem="YVR-hk-kP6" secondAttribute="centerY" id="mAr-jO-wsF"/>
+                                    <constraint firstAttribute="trailing" secondItem="pUx-39-Fou" secondAttribute="trailing" constant="8" id="mcL-Jh-EjI"/>
+                                    <constraint firstItem="8TJ-gk-rSQ" firstAttribute="leading" secondItem="qih-DX-IRB" secondAttribute="leading" constant="8" id="mx3-Ac-Ve8"/>
+                                    <constraint firstItem="3IT-Hx-q8J" firstAttribute="leading" secondItem="8S0-Rj-MY2" secondAttribute="trailing" priority="750" constant="8" id="rKw-aN-H7X"/>
+                                    <constraint firstItem="iwi-s5-irA" firstAttribute="leading" secondItem="8TJ-gk-rSQ" secondAttribute="trailing" constant="24" id="y67-q9-4N2"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="qih-DX-IRB" secondAttribute="width" id="5au-nw-56E"/>
+                            <constraint firstAttribute="centerXWithinMargins" secondItem="qih-DX-IRB" secondAttribute="centerXWithinMargins" id="5u0-gX-33r"/>
+                            <constraint firstItem="qih-DX-IRB" firstAttribute="top" secondItem="RhD-y8-ofR" secondAttribute="bottom" constant="40" id="A6V-Nh-fqc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Set up" id="bUt-aX-QeM">
+                        <barButtonItem key="rightBarButtonItem" title="Show" id="ulk-Ke-nu0">
+                            <connections>
+                                <segue destination="vXZ-lx-hvc" kind="push" identifier="resistance-scroll-view-segue" id="SN7-3M-xWS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="resistanceFactorTextField" destination="3IT-Hx-q8J" id="VlF-ng-Icw"/>
+                        <outlet property="resistanceProgressionRatioTextField" destination="pUx-39-Fou" id="P3I-8H-6WR"/>
+                        <outlet property="shouldAllowResistanceSwitch" destination="iwi-s5-irA" id="G0t-Ma-O0F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkM-Ud-phk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="551" y="403"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="i85-2R-msC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t0e-MY-dpq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="qcN-7G-Nu0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Xvk-gg-fOH" kind="relationship" relationship="rootViewController" id="8qm-JL-TCX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z8r-zm-Wql" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="15" y="403"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
