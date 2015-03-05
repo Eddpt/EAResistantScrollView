@@ -6,8 +6,10 @@
 //  Copyright (c) 2014 Edgar Antunes. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface EAViewController : UIViewController
+
+@property (nonatomic, assign) BOOL shouldAllowResistance;
+@property (nonatomic, assign) float resistanceFactor;
+@property (nonatomic, assign) float resistanceProgressionRatio;
 
 @end

@@ -7,23 +7,26 @@
 //
 
 #import "EAViewController.h"
+#import <EAResistantScrollView/EAResistantScrollView.h>
 
 @interface EAViewController ()
-
+@property (weak, nonatomic) IBOutlet EAResistantScrollView *scrollView;
 @end
 
 @implementation EAViewController
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+  [super viewDidLoad];
+  
+  self.scrollView.shouldApplyResistance = self.shouldAllowResistance;
+  self.scrollView.resistanceFactor = self.resistanceFactor;
+  self.scrollView.resistanceProgressionRatio = self.resistanceProgressionRatio;
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)didTapBackButton:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
