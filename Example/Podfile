@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'EAResistantScrollView', :exclusive => true do
+  pod "EAResistantScrollView", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "EAResistantScrollView", :path => "../"
+
+  
+end
