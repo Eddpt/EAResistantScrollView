@@ -232,9 +232,9 @@
 
 #pragma mark - Private helpers
 
-- (float)normalizedResistanceProgressionRatio
+- (CGFloat)normalizedResistanceProgressionRatio
 {
-  return self.resistanceProgressionRatio / 100;
+  return self.resistanceProgressionRatio / 100.0f;
 }
 
 @end
