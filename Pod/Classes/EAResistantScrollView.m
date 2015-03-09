@@ -20,6 +20,13 @@
 
 @implementation EAResistantScrollView
 
+#pragma mark - lifecycle
+
+- (void)dealloc
+{
+  super.delegate = nil;
+}
+
 #pragma mark - Initialization
 
 - (instancetype)init
