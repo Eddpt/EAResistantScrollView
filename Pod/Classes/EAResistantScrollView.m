@@ -221,9 +221,6 @@
     case UIGestureRecognizerStateFailed:
       self.isInActiveGesture = NO;
       break;
-      
-    default:
-      break;
   }
 
   self.lastRecognizedTouch = [recognizer translationInView:self];
