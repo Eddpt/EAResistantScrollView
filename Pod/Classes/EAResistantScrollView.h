@@ -23,7 +23,7 @@ IB_DESIGNABLE
  *  performing overscroll operations. Please look at @c resistanceProgressionRatio
  *  in order to achieve progressive resistance during an overscroll operation.
  */
-@property (nonatomic, assign) IBInspectable float resistanceFactor;
+@property (nonatomic, assign) IBInspectable CGFloat resistanceFactor;
 
 /**
  *  This property affects how much more resistant the scroll view becomes as the user
@@ -34,7 +34,7 @@ IB_DESIGNABLE
  *
  *  Values between 0 and 1 seem to work best with the current implementation.
  */
-@property (nonatomic, assign) IBInspectable float resistanceProgressionRatio;
+@property (nonatomic, assign) IBInspectable CGFloat resistanceProgressionRatio;
 
 /**
  *  If defined, this block is run every time the scroll view's delegate method
