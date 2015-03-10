@@ -88,34 +88,14 @@
   }
   
   if (self.tracking) {
-    if (scrollView.contentOffset.y <= 0) { // Negative overscrolling
-      CGFloat distanceMoved = self.lastRecognizedTouch.y - scrollView.contentOffset.y;
-      CGFloat normalizedDistance = - distanceMoved / (self.resistanceFactor + self.normalizedResistanceProgressionRatio * distanceMoved);
-      
-      scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x, normalizedDistance);
-    } else {
-      
-      CGFloat nonVisibleContentSize = scrollView.contentSize.height - scrollView.frame.size.height;
-      
-      if (scrollView.contentOffset.y > nonVisibleContentSize) { // Positive overscrolling
-        CGFloat distanceMoved = self.lastRecognizedTouch.y - (scrollView.contentOffset.y - nonVisibleContentSize);
-        CGFloat normalizedDistance = nonVisibleContentSize - distanceMoved / (self.resistanceFactor - self.normalizedResistanceProgressionRatio * distanceMoved);
-        
-        scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x, normalizedDistance);
-      }
+    if (self.isNegativeOverscrolling) {
+      [self adjustContentOffsetForNegativeOverscrolling];
+    } else if (self.isPositiveOverscrolling) {
+      [self adjustContentOffsetForPositiveOverscrolling];
     }
   }
   
   [self finalizeScrollViewDidScroll:scrollView];
-}
-
-- (void)finalizeScrollViewDidScroll:(UIScrollView *)scrollView
-{
-  !self.scrollViewDidScrollExecutionBlock ?: self.scrollViewDidScrollExecutionBlock(scrollView);
-  
-  if ([self.secondaryDelegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
-    [self.secondaryDelegate scrollViewDidScroll:scrollView];
-  }
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView
@@ -232,6 +212,57 @@
 - (CGFloat)normalizedResistanceProgressionRatio
 {
   return self.resistanceProgressionRatio / 100.0f;
+}
+
+- (BOOL)isNegativeOverscrolling
+{
+  return (self.contentOffset.y <= 0);
+}
+
+- (BOOL)isPositiveOverscrolling
+{
+  return (self.contentOffset.y > self.nonVisibleContentSize);
+}
+
+- (void)adjustContentOffsetForNegativeOverscrolling
+{
+  [self validateFields];
+
+  CGFloat distanceMoved = self.lastRecognizedTouch.y - self.contentOffset.y;
+  CGFloat normalizedDistance = - distanceMoved / (self.resistanceFactor + self.normalizedResistanceProgressionRatio * distanceMoved);
+  
+  self.contentOffset = CGPointMake(self.contentOffset.x, normalizedDistance);
+}
+
+- (void)adjustContentOffsetForPositiveOverscrolling
+{
+  [self validateFields];
+  
+  CGFloat nonVisibleContentSize = self.nonVisibleContentSize;
+  CGFloat distanceMoved = self.lastRecognizedTouch.y - (self.contentOffset.y - nonVisibleContentSize);
+  CGFloat normalizedDistance = nonVisibleContentSize - distanceMoved / (self.resistanceFactor - self.normalizedResistanceProgressionRatio * distanceMoved);
+  
+  self.contentOffset = CGPointMake(self.contentOffset.x, normalizedDistance);
+}
+
+- (CGFloat)nonVisibleContentSize
+{
+  return (self.contentSize.height - CGRectGetHeight(self.frame));
+}
+
+- (void)finalizeScrollViewDidScroll:(UIScrollView *)scrollView
+{
+  !self.scrollViewDidScrollExecutionBlock ?: self.scrollViewDidScrollExecutionBlock(scrollView);
+  
+  if ([self.secondaryDelegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
+    [self.secondaryDelegate scrollViewDidScroll:scrollView];
+  }
+}
+
+- (void)validateFields
+{
+  NSAssert(self.resistanceFactor != 0 || self.normalizedResistanceProgressionRatio != 0,
+           @"At least one of the resistance properties must be non-zero!");
 }
 
 @end
